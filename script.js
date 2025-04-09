@@ -5,3 +5,4 @@ const fetch = new Promise((resolve) => {
 fetch
     .then(() => console.log("fetch resolved"))
     .catch(() => console.error(`error: ${error}`))
+    .finally(() => console.log('promise completed'))
