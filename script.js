@@ -3,5 +3,5 @@ const fetch = new Promise((resolve) => {
 })
 
 fetch
-    .then(console.log("fetch resolved"))
-    .catch(console.error("fetch was unsuccesful"))
+    .then(() => console.log("fetch resolved"))
+    .catch(() => console.error(`error: ${error}`))
