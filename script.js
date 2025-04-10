@@ -10,13 +10,11 @@ function chooseDisc() {
 }
 
 //throw disc
-function throwDisc() {
+function throwDisc(outcome) {
     return new Promise((resolve, reject) => {
 
-        const discIsThrownWell = true;
-
         setTimeout(() => {
-            if(discIsThrownWell) {
+            if(outcome = 'Disc chosen') {
                 resolve("Nice shot!")
             } else {
                 reject("You niced my shot!")
@@ -39,15 +37,7 @@ function walkToMyDisc(outcome) {
 }
 
 //make putt
-
 chooseDisc()
-    .then((value) => {
-        throwDisc();
-        console.log(value)
-    })
-    .then(function (value) {
-        walkToMyDisc(value); 
-        console.log(value);
-    })
-    .catch((error) => console.log(error))
-    .finally(() => console.log('finsihed Hole'))
+.then((value) => throwDisc(value))
+.then((value) => walkToMyDisc(value))
+.catch((err) => console.error(err))
