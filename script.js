@@ -2,7 +2,7 @@
 
 //choose disc
 function chooseDisc() {
-    return new Promise ((resolve, reject) => {
+    return new Promise ((resolve) => {
         setTimeout(() => {
             resolve('Disc chosen')
         }, 3000)
@@ -14,7 +14,7 @@ function throwDisc(outcome) {
     return new Promise((resolve, reject) => {
 
         setTimeout(() => {
-            if(outcome = 'Disc chosen') {
+            if(outcome === 'Disc chosen') {
                 resolve("Nice shot!")
             } else {
                 reject("You niced my shot!")
@@ -27,7 +27,7 @@ function throwDisc(outcome) {
 function walkToMyDisc(outcome) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (outcome = "Nice shot!") {
+            if (outcome === "Nice shot!") {
                 resolve("Tap in that Putt!")
             } else {
                 reject("Nice Lay up")
@@ -36,8 +36,14 @@ function walkToMyDisc(outcome) {
     })
 }
 
-//make putt
 chooseDisc()
-.then((value) => throwDisc(value))
-.then((value) => walkToMyDisc(value))
+.then((value) => {
+    console.log(value)
+    return throwDisc(value)
+})
+.then((value) => {
+    console.log(value)
+    return walkToMyDisc(value)
+})
+.then((value) => console.log(value))
 .catch((err) => console.error(err))
