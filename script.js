@@ -1,66 +1,53 @@
-// const fetch = new Promise((resolve) => {
-//     setTimeout(() => resolve(console.log('hello')), 1000);
-// })
+//walking through playing a disc golf hole with funcitons
 
-// fetch
-//     .then(() => console.log("fetch resolved"))
-//     .catch(() => console.error(`error: ${error}`))
-//     .finally(() => console.log('promise completed'))
-
-
-// clean the house
-const cleanHouse = new Promise((resolve, reject) => {
-    let houseCleaned = true;
-    
-    if (houseCleaned){
+//choose disc
+function chooseDisc() {
+    return new Promise ((resolve, reject) => {
         setTimeout(() => {
-            console.log("house is clean")
-            resolve()
-        }
-      , 1000);
-     } else {
-        reject("You have to clean the house first")
- }
-})
-
-//walk the dog
-const walkDog = new Promise((resolve, reject) => {
-    let dogWalked = true;
-
-    if (dogWalked) {
-        setTimeout(() => {
-            console.log('dog is walked')
-            resolve();
-        }
-        , 6000)
-    } else {
-        reject('dog has to be walked')
-    }
-})
-
-// take out trash
-const takeOutTrash = new Promise ((resolve, reject) => {
- let trashTakenOut = true;
-
-    if(trashTakenOut) {
-        setTimeout(() => {
-            console.log('trash is taken out')
-            resolve();
-        }, 1000)
-        
-    } else {
-        reject('the trash has not been taken out')
-    }
-})
-
-cleanHouse
-    .then(() => {
-        return walkDog
+            resolve('Disc chosen')
+        }, 3000)
     })
-    .then(() => {
-        return takeOutTrash
+}
+
+//throw disc
+function throwDisc() {
+    return new Promise((resolve, reject) => {
+
+        const discIsThrownWell = true;
+
+        setTimeout(() => {
+            if(discIsThrownWell) {
+                resolve("Nice shot!")
+            } else {
+                reject("You niced my shot!")
+            }
+        }, 2000)
     })
-    .then(() => console.log('chores are complete'))
+}
+
+// walk to your disc
+function walkToMyDisc(outcome) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (outcome = "Nice shot!") {
+                resolve("Tap in that Putt!")
+            } else {
+                reject("Nice Lay up")
+            }
+        }, 2000)
+    })
+}
+
+//make putt
+
+chooseDisc()
+    .then((value) => {
+        throwDisc();
+        console.log(value)
+    })
+    .then(function (value) {
+        walkToMyDisc(value); 
+        console.log(value);
+    })
     .catch((error) => console.log(error))
-    .finally(() => console.log('you can go play with your friends now'))
-//go play with friend 
+    .finally(() => console.log('finsihed Hole'))
