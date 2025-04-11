@@ -37,16 +37,19 @@ function walkToMyDisc(outcome) {
 }
 
 async function playHole() {
-    try {
-        let discThrown = await chooseDisc();
-        let walkToDisc = await throwDisc(discThrown);
-        let finishHole = await walkToMyDisc(walkToDisc)
-        let finished = console.log(finishHole);
-        return finished;
-    } catch (error){
-        console.log(error);
+    let player = true;
+
+    if (player) {
+        try {
+            let discThrown = await chooseDisc();
+            let walkToDisc = await throwDisc(discThrown);
+            let finishHole = await walkToMyDisc(walkToDisc)
+            let finished = console.log(finishHole);
+            return finished;
+        } catch (error){
+            console.log(error);
+        }
     }
-   
 }
 
 playHole();
