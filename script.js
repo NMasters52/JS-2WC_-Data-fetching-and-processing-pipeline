@@ -4,8 +4,6 @@ const elements = {
     searchDisplay: document.getElementById('searchDisplay')
 }
 
-elements.searchBar.innerHTML = "hello"
-
 
 async function fetchPokemon() {
 
