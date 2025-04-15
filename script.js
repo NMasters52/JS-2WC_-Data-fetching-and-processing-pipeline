@@ -1,4 +1,5 @@
-fetch('https://pokeapi.co/api/v2/pokemon/clefairy/')
-.then(response => response.json())
-.then (data => console.log(data.types))
-.catch(error => console.log(error))
+async function fetchPokemon() {
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/clefairy/');
+    const data = await response.json()
+    console.log(data.weight)
+}
