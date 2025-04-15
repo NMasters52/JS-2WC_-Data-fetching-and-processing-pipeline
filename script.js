@@ -1,3 +1,12 @@
+const elements = {
+    searchBar: document.getElementById('searchBar'),
+    searchBtn: document.getElementById('searchBtn'),
+    searchDisplay: document.getElementById('searchDisplay')
+}
+
+elements.searchBar.innerHTML = "hello"
+
+
 async function fetchPokemon() {
 
     try{
