@@ -27,7 +27,8 @@ const elements = {
 //helper function to display fetch responses data
 function displaySearch(fetchResponseData) {
     elements.searchDisplay.innerHTML = `
-        <p>${fetchResponseData.weight}</p>`
+        <p>${fetchResponseData.name}</p>
+        <img src=${fetchResponseData.sprites.back_default}/>`
 }
 
 //ran when the app mounts so the event listner is live and the page is fully loaded
