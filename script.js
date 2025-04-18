@@ -13,7 +13,7 @@ const elements = {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
         
         if (!response.ok){
-            console.log('error fetching data');
+            alert('error fetching data. Please search for a valid pokemon');
         }
 
         const data = await response.json()
@@ -21,14 +21,13 @@ const elements = {
 
     } catch(error) {
         console.error(error);
-    }
-}
+    }}
 
 //helper function to display fetch responses data
 function displaySearch(fetchResponseData) {
     elements.searchDisplay.innerHTML = `
-        <p>${fetchResponseData.name}</p>
-        <img src=${fetchResponseData.sprites.back_default}/>`
+        <p>${fetchResponseData.name} weighs: ${fetchResponseData.weight}</p>
+        <img src='${fetchResponseData.sprites.front_shiny}'/>`
 }
 
 //ran when the app mounts so the event listner is live and the page is fully loaded
